@@ -1,0 +1,20 @@
+spring:
+  profiles: development
+  config:
+    name: &name kanda-dev
+  application:
+    name: *name
+  freemarker:
+    enabled: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+server:
+  port: 8099
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
