@@ -65,25 +65,24 @@ public class TaskRedisDaoImpl implements TaskDao {
 
         //List
 //         redisTemplate.boundListOps("user:"++":fol").leftPushAll("124");
-        redisTemplate
         //Set
 
         //Zset
-
-
-        List<String> keyList = Lists.newArrayList();
-        keyList.add("k1");
-        keyList.add("k2");
-        keyList.add("k3");
-        String values[] = new String[3];
-        values[0]="v1";
-        values[1]="v2";
-        values[2]="v3";
-        multiSet( keyList,values);
-
-        for(String key:keyList){
-            System.out.println(redisTemplate.boundValueOps(key).get());
-        }
+//
+//
+//        List<String> keyList = Lists.newArrayList();
+//        keyList.add("k1");
+//        keyList.add("k2");
+//        keyList.add("k3");
+//        String values[] = new String[3];
+//        values[0]="v1";
+//        values[1]="v2";
+//        values[2]="v3";
+//        multiSet( keyList,values);
+//
+//        for(String key:keyList){
+//            System.out.println(redisTemplate.boundValueOps(key).get());
+//        }
 
         redisTemplate.setEnableTransactionSupport(true);
         redisTemplate.multi();
@@ -101,7 +100,7 @@ public class TaskRedisDaoImpl implements TaskDao {
                     public Object doInRedis(RedisConnection connection) throws DataAccessException {
                         StringRedisConnection stringRedisConn = (StringRedisConnection) connection;
                         for (int i = 0; i < 100; i++) {
-                            stringRedisConn.set(key, value);
+                            stringRedisConn.set("", map.get(""));
                         }
                         return null;
                     }
